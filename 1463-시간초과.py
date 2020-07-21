@@ -28,3 +28,20 @@ import sys
 
 X = int(sys.stdin.readline())
 
+def dp(X):
+    count = 0
+    if X == 1:
+        return count
+
+    if X % 2 != 0 and X % 3 != 0:
+        count = dp(X-1) + 1
+
+    if X % 2 == 0:
+        count = min(dp(X//2), dp(X-1)) + 1
+
+    if X % 3 == 0:
+        count = min(dp(X//3), dp(X-1)) + 1
+
+    return count
+
+print(dp(X))
