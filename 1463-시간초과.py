@@ -28,20 +28,20 @@ import sys
 
 X = int(sys.stdin.readline())
 
-def dp(X):
+def make_1(X):
     count = 0
     if X == 1:
         return count
 
     if X % 2 != 0 and X % 3 != 0:
-        count = dp(X-1) + 1
+        count = make_1(X-1) + 1
 
     if X % 2 == 0:
-        count = min(dp(X//2), dp(X-1)) + 1
+        count = min(make_1(X//2), make_1(X-1)) + 1
 
     if X % 3 == 0:
-        count = min(dp(X//3), dp(X-1)) + 1
+        count = min(make_1(X//3), make_1(X-1)) + 1
 
     return count
 
-print(dp(X))
+print(make_1(X))
