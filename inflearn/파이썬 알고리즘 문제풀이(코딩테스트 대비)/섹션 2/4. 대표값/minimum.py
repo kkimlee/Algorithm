@@ -38,4 +38,6 @@ for i in range(len(arr)):
 	if arr[i] < arrMin:
 		arrMin = arr[i]
 
+print(arrMin)
+
 
